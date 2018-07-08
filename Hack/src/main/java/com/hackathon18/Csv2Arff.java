@@ -42,9 +42,6 @@ public class Csv2Arff {
 		
 		File f = new File(srcFile);
 		
-		long ff = FileUtils.sizeOf(f);
-		
-		System.out.println(ff);
 		
 		File bugCrashTraining = new File("bug_crash_training.arff");
 		File sentimentTraining = new File("sentiment_training.arff");
@@ -72,45 +69,45 @@ public class Csv2Arff {
 		    	comment_text = StringUtils.removeAll(comment_text, "[\'\"`]");
 		    	
 		    	if(crash_flag.equals("0") && bug_flag.equals("0")) {
-		    		String data = "\'"+comment_text+"\',"+"Other";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Other";
 		    		FileUtils.writeStringToFile(bugCrashTraining, data, "UTF-8", true);
 		    		countOfOther++;
 		    	}
 		    	else if(crash_flag.equals("1") && bug_flag.equals("1")) {
-		    		String data = "\'"+comment_text+"\',"+"Both";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Both";
 		    		FileUtils.writeStringToFile(bugCrashTraining, data, "UTF-8", true);
 		    		countOfBoth++;;
 
 		    	}
 		    	else if(crash_flag.equals("0") && bug_flag.equals("1"))  {
-		    		String data = "\'"+comment_text+"\',"+"Bug";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Bug";
 		    		FileUtils.writeStringToFile(bugCrashTraining, data, "UTF-8", true);
 		    		countOfBugs++;
 		    	}
 		    	else if(crash_flag.equals("1") && bug_flag.equals("0"))  {
-		    		String data = "\'"+comment_text+"\',"+"Crash";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Crash";
 		    		FileUtils.writeStringToFile(bugCrashTraining, data, "UTF-8", true);
 		    		countOfCrashes++;
 		    	}
 		    	
 		    	if(rating.equals("5") || rating.equals("4")) {
-		    		String data = "\'"+comment_text+"\',"+"Positive";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Positive";
 		    		FileUtils.writeStringToFile(sentimentTraining, data, "UTF-8", true);
 		    		countOfPositive++;
 		    	}
 		    	else if(rating.equals("1") || rating.equals("2")) {
-		    		String data = "\'"+comment_text+"\',"+"Negative";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Negative";
 		    		FileUtils.writeStringToFile(sentimentTraining, data, "UTF-8", true);
 		    		countOfNegative++;
 		    	}
 		    	
 		    	else if(rating .equals( "3") ) {
-		    		String data = "\'"+comment_text+"\',"+"Average";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Average";
 		    		FileUtils.writeStringToFile(sentimentTraining, data, "UTF-8", true);
 		    		countOfAverage++;
 		    	}
 		    	else if(rating.equals("NULL") ) {
-		    		String data = "\'"+comment_text+"\',"+"Average";
+		    		String data = "\n"+"\'"+comment_text+"\',"+"Average";
 		    		String data2 = count+1 +","+date+","+id+","+company_name+","+comment_text+","+bug_flag+","+crash_flag+"?";
 		    		FileUtils.writeStringToFile(sentimentTest, data, "UTF-8", true);
 		    		FileUtils.writeStringToFile(sentimentNull, data2, "UTF-8", true);
