@@ -66,7 +66,7 @@ public class Csv2Arff {
 		    String crash_flag = StringUtils.normalizeSpace(record.get(6));//crash_flag
 		    if(StringUtils.isNotBlank(comment_text) && TestParser.isPureAscii(comment_text) == true) {
 			    
-		    	comment_text = StringUtils.removeAll(comment_text, "[\'\"`]");
+		    	comment_text = StringUtils.removeAll(comment_text, "[\'\"`,-_?]");
 		    	
 		    	if(crash_flag.equals("0") && bug_flag.equals("0")) {
 		    		String data = "\n"+"\'"+comment_text+"\',"+"Other";
