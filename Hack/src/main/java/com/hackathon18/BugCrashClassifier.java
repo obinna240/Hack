@@ -9,10 +9,12 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Random;
 
 import weka.attributeSelection.InfoGainAttributeEval;
 import weka.attributeSelection.Ranker;
 import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.Evaluation;
 import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader.ArffReader;
@@ -172,6 +174,10 @@ public class BugCrashClassifier implements IHackModel {
 //		//In this case we apply the filter on the last attribute
 //		filter.setAttributeIndices("last");
 		
+		setUpStringToWordFilter() ;
+		setAttributeSelectionFilter();
+		createAttributeSelectionFilter();
+		
 		//Now we create the filteredClassifier
 		classifier = new FilteredClassifier();
 		//we now chain the filter to the classifier
@@ -180,11 +186,33 @@ public class BugCrashClassifier implements IHackModel {
 		//we also want to append our classifier following filtering
 		//In this case, we use a NaiveBayes classifier
 		classifier.setClassifier(new NaiveBayes());
+		try {
+			classifier.buildClassifier(trainingData);
+		} catch (Exception e) {
+			System.out.println("Training error");
+			e.printStackTrace();
+			
+		}
 	}
 
 	@Override
-	public void evaluate() {
-
+	public void evaluate(int kfold) {
+		//to evaluate, repeat the learn method
+		learn();
+		try {
+			Evaluation eval = new Evaluation(trainingData);
+			eval.crossValidateModel(classifier, trainingData, kfold, new Random(1));
+			//print the evaluation results, model cost and class details
+			System.out.println(eval.toSummaryString());
+			System.out.println(eval.toClassDetailsString());
+			System.out.println(eval.totalCost());
+			System.out.println(eval.toSummaryString());
+			System.out.println("Evaluation Completed");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
@@ -199,6 +227,20 @@ public class BugCrashClassifier implements IHackModel {
 		} catch (IOException e) {
 
 			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		BugCrashClassifier classifier1;
+		if(args.length < 2) {
+			System.out.println("Usage: Learning algo has options <fileData> <fileModel>");
+		}
+		else {
+			classifier1 = new BugCrashClassifier();
+			classifier1.loadDataSet(args[0]); //or include actual file Name
+			classifier1.evaluate(10);
+			classifier1.learn();
+			classifier1.saveModel(args[1]); //or enter file name
 		}
 	}
 }
