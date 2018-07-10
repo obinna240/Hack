@@ -1,0 +1,63 @@
+@relation 'test'
+
+@ATTRIBUTE Comment string
+@ATTRIBUTE Class-Attribute {Crash,Bug,Other}
+
+@data
+%crash
+'not user friendly lack of instruction'?
+'receipt images take a while to appear and takes hours to load',?
+'Cost of the serious bugs in the system remain he system loses receipts it crashes frequently and it is painfully reliant on needless reloading of data',?
+'uploading file is not working properly',?
+'File uploads sorry image uploads just won t complete',?
+'extremely glitchy software arnings continue to show up no matter how many times you fix the item called out',?
+'receipt uploading is buggy',?
+'receipts not loading window not working correctly',?
+'he android app keeps crashing or saying that the session ended and that  need to log back in  press  several times',?
+'fix the fakepath display issue when uploading receipts lso drag and drop would be nice',?
+'lot of errors for uploading pdf attachments as receipts',?
+'cellphone app do not work great with uploading receipts',?
+'expense report functionality is not user friendly uploading receipts as one document creates issues  should be able to upload  document of all receipts with no errors',?
+'fix the phone app! uploading receipt photos is a nightmare without the app working!',?
+'repeated error uploading receipt in html format ad to save the receipt image in  format before it finally uploaded',?
+'warnings are perpetually on the page',?
+'lost all entries after phone died can your reolve pls',?
+'using expenseit i submitted an expense for a hotel restaurant and concur decided it must be a hotel expense that requires itemization i cannot disabuse concur of this notion even though the expense was  bottles of water  must have spent  minutes uploading and resubmitting the same damn expense multiple times before i finally got concur to accept it it was for $ (net of meal expenses i am separately disputing with the hotel) his is the nd or rd time ive gone around in circles on an expense that Concur (or expenseit) categorizes as a hotel expense and then demands itemization his is so discouraging',?
+
+%bugs
+'conflict on hotel dates  shows error when it should not',?
+'reciept entry needs to be fixed!!',?
+'mobile app exception are not displayed properly',?
+'the i pad application you can not change the expense type',?
+'please fix the notifications for receipts here are receipts attached but it still alerts that receipts are needed',?
+'mailling receipts works very infrequently no error response is ever received but often the receipts just fail to show up in the gallery',?
+'having some issues with error lately making my submittal of reports late',?
+'poorly designed tool not intuitive at all error codes contain no info as to what is causing error',?
+'Concur is very user friendly and error proof system',?
+'it is erratic  have the same charge number yesterday it did not work but worked today thanks for the asking',?
+'add very descriptive information when there is an error and how to correct it ',?
+'system gives me an error when submitting mileage expenses he issue is that the route is system generated',?
+'time to process from approval to payment is taking way to long lease fix this time frame please',?
+'the submit button wont work on my android on image upload',?
+'add button takes me to the wrong page after receipt submission',?
+'i keep getting jibberish after eceipt entry',?
+'mileage caluclator rounding up mileage error',?
+
+%other
+'system works quite well and i think it is great'?
+'great work',?
+'crap',?
+'could you please approve my request for a trip made weeks ago',?
+'xpense reporting is very good',?
+'In the future if concur system could link up with otel for the itemized item',?
+'everything is too complicated',?
+'love this new upgraded tool for submitting expenses',?
+'system does not accept upload receipts and attaches the wrong category to expenses',?
+'Hotel bills are extremely difficult to upload',?
+'Excellent receipt handling',?
+'ot so easy to use',?
+'not very user friendly',?
+'several information needed just to reimburse can we improve on the process',?
+'nothing to say',?
+'when is the next release so that I won't spend my money on this',?
+'good system needs minoe improvement',?
