@@ -1,3 +1,9 @@
+@RELATION 'BUG_CRASH'
+
+@ATTRIBUTE Comment string
+@ATTRIBUTE Class-Attribute {Crash,Bug,Other}
+
+@DATA
 'cost of the serious bugs in the system remain he system loses receipts it crashes frequently and it is painfully reliant on needless reloading of data',Crash
 'it takes ages to refresh he error message is not very specific which requires guess to correct he warning sign did not disappear when the error is corrected',Crash
 'uploading file is not working properly',Crash
